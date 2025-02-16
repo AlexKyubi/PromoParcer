@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromoParcer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at top, #1a1a1a, #121212);
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+            animation: backgroundFade 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes backgroundFade {
+            from {
+                background: radial-gradient(circle at top, #1a1a1a, #121212);
+            }
+
+            to {
+                background: radial-gradient(circle at bottom, #2a2a2a, #1a1a1a);
+            }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(30, 30, 30, 0.85);
+            border-radius: 25px;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 42px;
+            background: linear-gradient(90deg, red, darkred);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 3s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.05);
+            }
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 35px;
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+            background: red;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: float 2s infinite alternate ease-in-out;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-8px);
+            }
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .feature {
+            width: 45%;
+            background: rgba(50, 50, 50, 0.7);
+            margin: 15px;
+            padding: 25px;
+            border-radius: 25px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            transition: transform 0.4s ease-in-out;
+            animation: bounceIn 1.5s ease-in-out;
+        }
+
+        .feature:hover {
+            transform: translateY(-12px) scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+        }
+
+        @keyframes bounceIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 25px;
+            background: rgba(30, 30, 30, 0.9);
+            border-top: 2px solid red;
+            font-size: 18px;
+            border-radius: 0 0 25px 25px;
+        }
+
+        .footer a {
+            color: red;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .feature {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>PromoParcer</h1>
+        <p>Мощный инструмент для автоматического мониторинга акций.</p>
+
+        <div class="features">
+            <div class="feature">✅ Автоматический парсинг акций без вашего участия</div>
+            <div class="feature">✅ Сохранение акций в удобный Excel-файл</div>
+            <div class="feature">✅ Работает в только в системе Windows</div>
+            <div class="feature">✅ Просто запустите файл и подождите 2 минуты</div>
+            <div class="feature">📺 <a href="https://disk.yandex.com/i/TVPa-P_4O9BZbA" target="_blank"
+                    style="color: red; text-decoration: none;">Видео инструкция</a></div>
+        </div>
+
+        <a href="https://disk.yandex.com/d/E4pMgkLa_mmxVg" class="cta-button">Скачать</a>
+    </div>
+    <div class="footer">
+        <p>Связь с разработчиком: <a href="mailto:ya@Alexkyubi.ru">ya@Alexkyubi.ru</a></p>
+    </div>
+</body>
+
+</html>
