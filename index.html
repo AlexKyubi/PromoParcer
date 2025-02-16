@@ -51,12 +51,109 @@
 
         h1 {
             font-size: 42px;
-            background: linear-gradient(90deg, red, darkred);
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(90deg, red, orange, yellow, red);
+            background-size: 300%;
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: pulse 3s infinite alternate;
+            animation: colorShift 8s infinite ease-in-out;
         }
+
+        /* Добавляем светящееся дублирование текста */
+        h1::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 42px;
+            font-weight: bold;
+            background: linear-gradient(90deg, red, orange, yellow, red);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: blur(10px);
+            opacity: 0.7;
+            animation: glowPulse 5s infinite alternate ease-in-out, colorShift 8s infinite ease-in-out;
+        }
+
+
+        /* Основная анимация плавного перелива цвета */
+        @keyframes colorShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            25% {
+                background-position: 50% 100%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            75% {
+                background-position: 50% 0%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Дополнительная случайность в изменении направления */
+        @keyframes colorShiftRandom {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            20% {
+                transform: rotate(15deg);
+            }
+
+            40% {
+                transform: rotate(-10deg);
+            }
+
+            60% {
+                transform: rotate(8deg);
+            }
+
+            80% {
+                transform: rotate(-12deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        /* Анимация свечения */
+        @keyframes glowPulse {
+            0% {
+                filter: blur(10px);
+                opacity: 0.5;
+            }
+
+            50% {
+                filter: blur(15px);
+                opacity: 0.9;
+            }
+
+            100% {
+                filter: blur(10px);
+                opacity: 0.5;
+            }
+        }
+
+
+
 
         @keyframes pulse {
             from {
@@ -73,6 +170,7 @@
             line-height: 1.6;
         }
 
+
         .cta-button {
             display: inline-block;
             margin-top: 20px;
@@ -80,19 +178,65 @@
             font-size: 22px;
             font-weight: bold;
             color: white;
-            background: red;
-            border: none;
+            /* Белый текст */
+            text-decoration: none;
+            background: rgba(139, 0, 0, 0.8);
+            /* Темно-красный фон */
             border-radius: 30px;
             cursor: pointer;
-            text-decoration: none;
+            position: relative;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: float 2s infinite alternate ease-in-out;
         }
 
+        /* Размытие краёв через `::before` */
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 130%;
+            height: 150%;
+            background: rgba(255, 0, 0, 0.6);
+            /* Кровавая аура */
+            border-radius: 50px;
+            filter: blur(15px);
+            /* Размытие */
+            z-index: -1;
+            animation: bloodyBlur 3s infinite alternate ease-in-out;
+        }
+
+
+        /* Анимация размытой ауры */
+        @keyframes bloodyBlur {
+            0% {
+                opacity: 0.7;
+                filter: blur(10px);
+                box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+            }
+
+            50% {
+                opacity: 1;
+                filter: blur(20px);
+                box-shadow: 0 0 25px rgba(255, 0, 0, 1);
+            }
+
+            100% {
+                opacity: 0.7;
+                filter: blur(10px);
+                box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+            }
+        }
+
+        /* Эффект при наведении */
         .cta-button:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 1),
+                0 0 40px rgba(139, 0, 0, 1),
+                0 0 50px rgba(139, 0, 0, 0.8);
         }
+
+
 
         @keyframes float {
             from {
@@ -112,6 +256,7 @@
         }
 
         .feature {
+
             width: 45%;
             background: rgba(50, 50, 50, 0.7);
             margin: 15px;
@@ -168,12 +313,46 @@
                 padding: 20px;
             }
         }
+
+        p {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            /* Белый текст */
+            text-align: center;
+            position: relative;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.8),
+                0 0 10px rgba(139, 0, 0, 0.9),
+                0 0 20px rgba(139, 0, 0, 1);
+            animation: bloodyAura 2s infinite alternate ease-in-out;
+        }
+
+        /* Анимация кровавой пульсирующей ауры */
+        @keyframes bloodyAura {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 0, 0, 0.7),
+                    0 0 10px rgba(139, 0, 0, 0.8),
+                    0 0 20px rgba(139, 0, 0, 1);
+            }
+
+            50% {
+                text-shadow: 0 0 10px rgba(255, 0, 0, 0.9),
+                    0 0 20px rgba(139, 0, 0, 1),
+                    0 0 30px rgba(139, 0, 0, 1);
+            }
+
+            100% {
+                text-shadow: 0 0 5px rgba(255, 0, 0, 0.7),
+                    0 0 10px rgba(139, 0, 0, 0.8),
+                    0 0 20px rgba(139, 0, 0, 1);
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>PromoParcer</h1>
+        <h1 data-text=" PromoParcer ">PromoParcer</h1>
         <p>Мощный инструмент для автоматического мониторинга акций.</p>
 
         <div class="features">
@@ -185,7 +364,7 @@
                     style="color: red; text-decoration: none;">Видео инструкция</a></div>
         </div>
 
-        <a href="https://disk.yandex.com/d/E4pMgkLa_mmxVg" class="cta-button">Скачать</a>
+        <a href="https://disk.yandex.com/d/E4pMgkLa_mmxVg" class="cta-button"><span>Скачать</span></a>
     </div>
     <div class="footer">
         <p>Связь с разработчиком: <a href="mailto:ya@Alexkyubi.ru">ya@Alexkyubi.ru</a></p>
