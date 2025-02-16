@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PromoParcer</title>
     <style>
+        * {
+            user-select: none;
+            /* Запрещает выделение текста */
+            -webkit-user-select: none;
+            /* Для Safari */
+            -moz-user-select: none;
+            /* Для Firefox */
+            -ms-user-select: none;
+            /* Для старых IE */
+            -webkit-user-drag: none;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -29,7 +41,7 @@
 
         .container {
             max-width: 900px;
-            margin: 50px auto;
+            margin: 50px 20px;
             padding: 30px;
             background: rgba(30, 30, 30, 0.85);
             border-radius: 25px;
@@ -364,7 +376,7 @@
                     style="color: red; text-decoration: none;">Видео инструкция</a></div>
         </div>
 
-        <a href="https://disk.yandex.com/d/E4pMgkLa_mmxVg" class="cta-button"><span>Скачать</span></a>
+        <a href="https://disk.yandex.com/d/E4pMgkLa_mmxVg" class="cta-button" draggable="false"><span>Скачать</span></a>
     </div>
     <div class="footer">
         <p>Связь с разработчиком: <a href="mailto:ya@Alexkyubi.ru">ya@Alexkyubi.ru</a></p>
